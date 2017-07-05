@@ -18,13 +18,24 @@
 
 d3.csv("data.csv",function(data){
 
-    //specify .printFrame or .webFrame(S/M/L) or .socialFrame or .videoFrame
+    /*specify the frame type you require;
+        .webFrameS
+        .webframeM
+        .webFrameL
+        .printFrame - note the height/width is mm
+        .socialFrame
+        .videoFrame
+    */
     const frameConfig = {
         chartType:'webFrameM',
         title:'Lorem ipsum dolor sit amet, consectetur',
         subtitle:'Vestibulum tincidunt arcu nibh',
         source:'Nunc ac leo urna',
+        height:500,
+        //width:170.8//comment the width out for web frames
     }
+
+    console.log(frameConfig.height)
 
     //create chart frame
     const svg = d3.select("body").append("svg")
