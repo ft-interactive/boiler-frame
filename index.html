@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FT boilerplate</title>
+    <link rel="stylesheet" href="assets/styles.css"/>
+    <link rel="stylesheet" href="assets/origami-fonts.css" />
+    <script src="assets/d3.v4.js"></script>
+    <script src="assets/g-chartframe.js"></script>
+    <script src="assets/g-chartcolour.js"></script>
+    <style>
+    /*custom CSS here/*
+    </style>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+d3.csv("data.csv",function(data){
+
+    //specify .printFrame or .webFrame(S/M/L) or .socialFrame or .videoFrame
+    const frameConfig = {
+        chartType:'webFrameM',
+        title:'Lorem ipsum dolor sit amet, consectetur',
+        subtitle:'Vestibulum tincidunt arcu nibh',
+        source:'Nunc ac leo urna',
+    }
+
+    //create chart frame
+    const svg = d3.select("body").append("svg")
+    const chartFrame = createFrame(frameConfig.chartType)
+    svg.call(chartFrame);
+
+    //colour palettes
+    const sequentialColors = gChartcolour.sequentialMulti
+    const divergingColors = gChartcolour.diverging;
+    const lineColors = getLineColors(frameConfig.chartType)
+    const barColors = getBarColors(frameConfig.chartType)
+
+    //plot dimensions
+    const plot = chartFrame.plot();
+    const w = chartFrame.dimension().width;
+    const h = chartFrame.dimension().height;
+
+
+    ///////data///////
+    data.forEach(function(d){
+        //parse the data here if needed eg.
+        const parseDate = d3.timeParse("%Y")
+        d.date = parseDate(d.date);
+        d.potatoes = +d.potatoes;
+    })
+    console.log(data)//check your data
+
+
+    /////////YOUR CUSTOM VIZ CODE HERE//////////
+
+    //example circle - this will draw at different sizes and colours depending on chosen frame
+    plot.append("circle")
+        .attr("r",w/4)
+        .attr("cx",w/2)
+        .attr("cy",h/2)
+        .attr("fill",lineColors[0])
+
+    //END OF YOUR CUSTOM VIZ CODE
+
+
+
+
+    function createFrame(chartType){
+        let frame;
+        switch(frameConfig.chartType) {
+            case "socialFrame":
+                frame = gChartframe.socialFrame(frameConfig);
+                break;
+            case "printFrame":
+                frame = gChartframe.printFrame(frameConfig);
+                break;
+            case "webFrameS":
+                frame = gChartframe.webFrameS(frameConfig);
+                break;
+            case "webFrameM":
+                frame = gChartframe.webFrameM(frameConfig);
+                break;
+            case "webFrameL":
+                frame = gChartframe.webFrameL(frameConfig);
+                break;
+            case "videoFrame":
+                frame = gChartframe.videoFrame(frameConfig);
+                break;
+        }
+        return frame;
+    }
+
+    function getLineColors(chartType){
+        let colors;
+        switch(frameConfig.chartType) {
+            case "socialFrame":
+                colors = gChartcolour.lineSocial;
+                break;
+            case "printFrame":
+                colors = gChartcolour.linePrint;
+                break;
+            case "videoFrame":
+                colors = gChartcolour.lineSocial;
+                break;
+            default:
+                colors = gChartcolour.categorical_line;
+        }
+        return colors;
+    }
+
+    function getBarColors(chartType){
+        let colors;
+        switch(frameConfig.chartType) {
+            case "socialFrame":
+                colors = gChartcolour.lineSocial;
+                break;
+            case "printFrame":
+                colors = gChartcolour.linePrint;
+                break;
+            case "videoFrame":
+                colors = gChartcolour.lineSocial;
+                break;
+            default:
+                colors = gChartcolour.categorical_bar;
+        }
+        return colors;
+    }
+})
+</script>
+</html>
