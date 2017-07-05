@@ -8,7 +8,6 @@ Create a copy of the folder and run it using Browser-Sync or similar. Add your o
 This currently uses local versions of dependencies, for offline coding
 
 ### further tweaks needed
-- Add support for changing size of print/social frames and height of web
 - Add support for chartAxis objects
 - Add media-specific css support for font-sizes/stroke-widths etc
 

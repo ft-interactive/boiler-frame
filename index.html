@@ -35,8 +35,6 @@ d3.csv("data.csv",function(data){
         //width:170.8//comment the width out for web frames
     }
 
-    console.log(frameConfig.height)
-
     //create chart frame
     const svg = d3.select("body").append("svg")
     const chartFrame = createFrame(frameConfig.chartType)
