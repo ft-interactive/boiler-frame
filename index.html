@@ -136,6 +136,32 @@ d3.csv("data.csv",function(data){
         }
         return colors;
     }
+
+    function addCSS(){
+        let link;
+        switch(frameConfig.chartType) {
+            case "socialFrame":
+                link = "assets/social.css";
+                break;
+            case "printFrame":
+                link = "assets/print.css";
+                break;
+            case "videoFrame":
+                link = "assets/video.css";
+                break;
+            case "webFrameS":
+                link = "assets/webS.css";
+                break;
+            case "webFrameM":
+                link = "assets/webM.css";
+                break;
+            case "webFrameL":
+                link = "assets/webL.css";
+                break;
+            
+        }
+        return colors;
+    }
 })
 </script>
 </html>
