@@ -81,7 +81,7 @@ svg {
     stroke-width: 4px;
     stroke-opacity: 0.38;
 }
-/* Makes domian invivible on yAxis*/
+/* Makes domain invivible on yAxis*/
 .ft-webgraphic-s .domain,
 .ft-webgraphic-m .domain,
 .ft-webgraphic-l .domain {

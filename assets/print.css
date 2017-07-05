@@ -1,0 +1,82 @@
+/* overall text style for each chart frame*/
+svg {
+    font-size: 0;
+}
+.axis {
+    font-size: inherit !important;
+}
+
+/* .overall text styles on axis*/
+.ft-printgraphic .axis text {
+    font-family: metric;
+    font-size: 9.6px;
+}
+
+/* .tick text on yAxis*/
+.ft-printgraphic .yAxis text{
+    text-anchor: end;
+}
+
+/* .tick line styles on yAxis*/
+.ft-printgraphic .yAxis line{
+    stroke: #000000;
+    stroke-width: 0.3px;
+}
+
+/* Makes domain invivible on yAxis*/
+.ft-printgraphic .domain{
+    stroke-width: 0px;
+}
+
+/* .tick text on yAxis*/
+.ft-printgraphic .xAxis text{
+    text-anchor: middle;
+}
+
+.ft-printgraphic .xAxis line{
+    stroke: #000000;
+    stroke-width: 0.3px;
+}
+
+/* Style for the highlight or base line on yAxis*/
+.ft-printgraphic .baseline line{
+    stroke: #000000;
+    stroke-width: 0.6px;
+}
+
+/* Styles for lines on chart*/
+.ft-printgraphic .lines{
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2px;
+    fill: none;
+}
+
+/* annotation styling*/
+.ft-printgraphic .annotations-holder line {
+    stroke: #000000;
+    stroke-width: 0.5px;
+}
+.ft-printgraphic .annotations-holder text {
+    font-size: 9.6px;
+    fill: #000000;
+}
+
+/* .overall text styles on axis*/
+.ft-printgraphic .highlights{
+    fill: #95BFC5;
+    opacity: 0.3;
+}
+
+/* legend */
+.ft-printgraphic .legend{
+    font-family: metric;
+    font-size: 9.6px;
+}
+
+
+svg text{
+    font-feature-settings: 'tnum',1;
+    -webkit-font-feature-settings: 'tnum';
+    -moz-font-feature-settings: 'tnum';
+}

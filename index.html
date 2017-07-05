@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>FT boilerplate</title>
+    <title>FT boiler-frame</title>
     <link rel="stylesheet" href="assets/styles.css"/>
     <link rel="stylesheet" href="assets/origami-fonts.css" />
     <script src="assets/d3.v4.js"></script>
@@ -40,7 +40,7 @@ d3.csv("data.csv",function(data){
     const chartFrame = createFrame(frameConfig.chartType)
     svg.call(chartFrame);
 
-    //colour palettes
+    //basic colour palettes
     const sequentialColors = gChartcolour.sequentialMulti
     const divergingColors = gChartcolour.diverging;
     const lineColors = getLineColors(frameConfig.chartType)
@@ -51,19 +51,18 @@ d3.csv("data.csv",function(data){
     const w = chartFrame.dimension().width;
     const h = chartFrame.dimension().height;
 
+    /////////YOUR CUSTOM VIZ CODE HERE//////////
 
     ///////data///////
     data.forEach(function(d){
-        //parse the data here if needed eg.
+        //parse your data here if needed eg.
         const parseDate = d3.timeParse("%Y")
         d.date = parseDate(d.date);
         d.potatoes = +d.potatoes;
     })
     console.log(data)//check your data
 
-
-    /////////YOUR CUSTOM VIZ CODE HERE//////////
-
+    //////draw your stuff////////
     //example circle - this will draw at different sizes and colours depending on chosen frame
     plot.append("circle")
         .attr("r",w/4)
@@ -71,8 +70,22 @@ d3.csv("data.csv",function(data){
         .attr("cy",h/2)
         .attr("fill",lineColors[0])
 
-    //END OF YOUR CUSTOM VIZ CODE
+    plot.append("line")
+        .attr("x1",w*0.25)
+        .attr("x2",w*0.75)
+        .attr("y1",h/2)
+        .attr("y2",h/2)
+        .attr("class","lines")
+        .attr("stroke",lineColors[1])
 
+    plot.append("text")
+        .attr("x",w*0.5)
+        .attr("y",h*0.5)
+        .attr("fill","#111111")
+        .text("This is my text")
+
+
+    //END OF YOUR CUSTOM VIZ CODE
 
 
 
@@ -137,31 +150,6 @@ d3.csv("data.csv",function(data){
         return colors;
     }
 
-    function addCSS(){
-        let link;
-        switch(frameConfig.chartType) {
-            case "socialFrame":
-                link = "assets/social.css";
-                break;
-            case "printFrame":
-                link = "assets/print.css";
-                break;
-            case "videoFrame":
-                link = "assets/video.css";
-                break;
-            case "webFrameS":
-                link = "assets/webS.css";
-                break;
-            case "webFrameM":
-                link = "assets/webM.css";
-                break;
-            case "webFrameL":
-                link = "assets/webL.css";
-                break;
-            
-        }
-        return colors;
-    }
 })
 </script>
 </html>
