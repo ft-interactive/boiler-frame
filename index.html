@@ -20,7 +20,7 @@ d3.csv("data.csv",function(data){
 
     /*specify the frame type you require;
         .webFrameS
-        .webframeM
+        .webFrameM
         .webFrameL
         .printFrame - note the height/width is mm
         .socialFrame
@@ -53,23 +53,20 @@ d3.csv("data.csv",function(data){
 
     /////////YOUR CUSTOM VIZ CODE HERE//////////
 
-    ///////data///////
+    ///////check your data///////
     data.forEach(function(d){
-        //parse your data here if needed eg.
         const parseDate = d3.timeParse("%Y")
         d.date = parseDate(d.date);
         d.potatoes = +d.potatoes;
     })
-    console.log(data)//check your data
+    console.log(data)//
 
     //////draw your stuff////////
-    //example circle - this will draw at different sizes and colours depending on chosen frame
     plot.append("circle")
         .attr("r",w/4)
         .attr("cx",w/2)
         .attr("cy",h/2)
         .attr("fill",lineColors[0])
-
     plot.append("line")
         .attr("x1",w*0.25)
         .attr("x2",w*0.75)
@@ -77,11 +74,10 @@ d3.csv("data.csv",function(data){
         .attr("y2",h/2)
         .attr("class","lines")
         .attr("stroke",lineColors[1])
-
     plot.append("text")
         .attr("x",w*0.5)
         .attr("y",h*0.5)
-        .attr("fill","#111111")
+        .attr("class","xAxis")
         .text("This is my text")
 
 
