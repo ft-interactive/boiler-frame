@@ -6,6 +6,10 @@ svg {
     font-size: inherit !important;
 }
 
+.ft-webgraphic-m .potato {font-size:20px;text-anchor:middle;}
+.ft-webgraphic-s .potato {font-size:14px;text-anchor:middle;}
+.ft-webgraphic-l .potato {font-size:24px;text-anchor:middle;}
+
 /* .overall text styles on axis*/
 .ft-webgraphic-s .axis text,
 .ft-webgraphic-m .axis text,
