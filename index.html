@@ -53,6 +53,7 @@ d3.csv("data.csv",function(data){
     const plot = chartFrame.plot();
     const w = chartFrame.dimension().width;
     const h = chartFrame.dimension().height;
+    const rem = chartFrame.rem();
 
     /////////YOUR CUSTOM VIZ CODE HERE//////////
 
@@ -77,11 +78,14 @@ d3.csv("data.csv",function(data){
         .attr("y2",h/2)
         .attr("class","lines")
         .attr("stroke",lineColors[1])
-    plot.append("text")
-        .attr("x",w*0.5)
-        .attr("y",h*0.5)
-        .attr("class","potato")
-        .text("This is my text")
+    
+    var annotation = plot.append("g")
+        .attr("transform","translate(" + w / 2 + "," + (h / 2) + ")")
+        .attr("class","annotations-holder")
+        .append('text')
+        .text("This is my text, and a bit more")
+        .style('text-anchor', 'middle')
+        .attr('dy', -(rem / 2))
 
 
     //END OF YOUR CUSTOM VIZ CODE

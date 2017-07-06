@@ -1,5 +1,5 @@
 /* overall text style for each chart frame*/
-svg {
+svg text{
     font-size: 0;
 }
 .axis {
@@ -232,7 +232,7 @@ svg {
 .ft-webgraphic-s .annotations-holder text,
 .ft-webgraphic-m .annotations-holder text,
 .ft-webgraphic-l .annotations-holder text {
-    fill: #66605C;
+    fill: #fff;
 }
 
 .ft-printgraphic .annotations-holder text {
