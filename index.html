@@ -79,7 +79,7 @@ d3.csv("data.csv",function(data){
         .attr("class","lines")
         .attr("stroke",lineColors[1])
     
-    var annotation = plot.append("g")
+    plot.append("g")
         .attr("transform","translate(" + w / 2 + "," + (h / 2) + ")")
         .attr("class","annotations-holder")
         .append('text')
