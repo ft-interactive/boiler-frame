@@ -4,9 +4,9 @@
     <title>FT boiler-frame</title>
     <link rel="stylesheet" href="assets/styles.css"/>
     <link rel="stylesheet" href="assets/origami-fonts.css" />
-    <script src="assets/d3.v4.js"></script>
-    <script src="assets/g-chartframe.js"></script>
-    <script src="assets/g-chartcolour.js"></script>
+    <script src="//unpkg.com/d3@4.9.1"></script>
+    <script src="//unpkg.com/g-chartframe@latest"></script>
+    <script src="//unpkg.com/g-chartcolour@latest"></script>
     <style>
     /*custom CSS here*/
     </style>
@@ -77,7 +77,7 @@ d3.csv("data.csv",function(data){
         .attr("y2",h*.5)
         .attr("class","lines")
         .attr("stroke",lineColors[1])
-    
+
     ////write annotations on to 'anno'
     anno.append('text')
         .attr("x",w*.5)
