@@ -36,14 +36,14 @@ d3.csv("data.csv",function(data){
         //margin:{top:20,left:20,right:20,bottom:20}//over-ride default margins
     }
 
-    //create chart frame
+    //this creates the chart frame
     const svg = d3.select("body").append("svg")
     const chartFrame = createFrame(frameConfig.chartType)
     svg.call(chartFrame);
 
     //basic colour palettes
-    const sequentialColors = gChartcolour.sequentialMulti
-    const divergingColors = gChartcolour.diverging;
+    const seqColors = gChartcolour.sequentialMulti
+    const divColors = gChartcolour.diverging;
     const lineColors = getLineColors(frameConfig.chartType)
     const barColors = getBarColors(frameConfig.chartType)
 
