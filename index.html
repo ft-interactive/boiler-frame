@@ -50,10 +50,11 @@ d3.csv("data.csv",function(data){
     const barColors = getBarColors(frameConfig.chartType)
 
     //plot dimensions
-    const plot = chartFrame.plot();
+    const plot = chartFrame.plot().append("g");
     const w = chartFrame.dimension().width;
     const h = chartFrame.dimension().height;
     const rem = chartFrame.rem();
+    const anno = chartFrame.plot().append("g").attr("class","annotations-holder");
 
     /////////YOUR CUSTOM VIZ CODE HERE//////////
 
@@ -65,27 +66,28 @@ d3.csv("data.csv",function(data){
     })
     console.log(data)//
 
-    //////draw your stuff////////
+    //////draw your stuff on to 'plot' ////////
     plot.append("circle")
-        .attr("r",w/4)
-        .attr("cx",w/2)
-        .attr("cy",h/2)
+        .attr("r",w*.1)
+        .attr("cx",w*.5)
+        .attr("cy",h*.5)
         .attr("fill",lineColors[0])
     plot.append("line")
-        .attr("x1",w*0.25)
-        .attr("x2",w*0.75)
-        .attr("y1",h/2)
-        .attr("y2",h/2)
+        .attr("x1",w*.4)
+        .attr("x2",w*.6)
+        .attr("y1",h*.5)
+        .attr("y2",h*.5)
         .attr("class","lines")
         .attr("stroke",lineColors[1])
     
-    plot.append("g")
-        .attr("transform","translate(" + w / 2 + "," + (h / 2) + ")")
-        .attr("class","annotations-holder")
-        .append('text')
-        .text("This is my text, and a bit more")
+    ////write annotations on to 'anno'
+    anno.append('text')
+        .attr("x",w*.5)
+        .attr("y",h*.25)
+        .text("Annotations are important")
         .style('text-anchor', 'middle')
         .attr('dy', -(rem / 2))
+
 
 
     //END OF YOUR CUSTOM VIZ CODE
