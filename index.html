@@ -9,8 +9,6 @@
     <script src="assets/g-chartcolour.js"></script>
     <style>
     /*custom CSS here*/
-    
-
     </style>
 </head>
 <body>
@@ -21,19 +19,19 @@
 d3.csv("data.csv",function(data){
 
     /*specify the frame type you require;
-        .webFrameS
-        .webFrameM
-        .webFrameL
+        .webFrameS - 300px width
+        .webFrameM - 700px
+        .webFrameL - 1180px
         .printFrame - note the height/width is mm
         .socialFrame
         .videoFrame
     */
     const frameConfig = {
         chartType:'webFrameM',
-        title:'Lorem ipsum dolor sit amet, consectetur',
+        title:'Lorem ipsum dolor sit amet',
         subtitle:'Vestibulum tincidunt arcu nibh',
         source:'Nunc ac leo urna',
-        height:500,
+        //height:500,
         //width:170.8,//comment the width out for web frames
         //margin:{top:20,left:20,right:20,bottom:20}//over-ride default margins
     }
@@ -87,6 +85,7 @@ d3.csv("data.csv",function(data){
         .text("Annotations are important")
         .style('text-anchor', 'middle')
         .attr('dy', -(rem / 2))
+
 
 
 
