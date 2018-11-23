@@ -57,7 +57,6 @@ d3.csv("data.csv",function(data){
     const barColors = getBarColors(frameConfig.chartType)
 
     //plot dimensions
-    const plot = chartFrame.plot().append("g");
     const w = chartFrame.dimension().width;
     const h = chartFrame.dimension().height;
     const rem = chartFrame.rem();
@@ -73,13 +72,22 @@ d3.csv("data.csv",function(data){
     })
     console.log(data)//
 
-    //////draw your stuff on to 'plot' ////////
-    plot.append("circle")
+    //add axes using g-axis
+    const yAxis = gAxis.yLinear()
+        .tickSize(w)
+        .domain([0,200])
+        .range([h,0])
+    chartFrame.plot()
+        .call(yAxis);
+
+    //////draw your stuff on to 'graphics'////////
+    const graphics = chartFrame.plot().append("g");
+    graphics.append("circle")
         .attr("r",w*.1)
         .attr("cx",w*.5)
         .attr("cy",h*.5)
-        .attr("fill",lineColors[0])
-    plot.append("line")
+        .attr("fill",barColors[0])
+    graphics.append("line")
         .attr("x1",w*.4)
         .attr("x2",w*.6)
         .attr("y1",h*.5)
@@ -95,11 +103,7 @@ d3.csv("data.csv",function(data){
         .style('text-anchor', 'middle')
         .attr('dy', -(rem / 2))
 
-
-
-
     //END OF YOUR CUSTOM VIZ CODE
-
 
 
     function createFrame(chartType){
