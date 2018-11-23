@@ -7,6 +7,7 @@
     <script src="//unpkg.com/d3@4.9.1"></script>
     <script src="//unpkg.com/g-chartframe@latest"></script>
     <script src="//unpkg.com/g-chartcolour@latest"></script>
+    <script src="//unpkg.com/g-axis@latest"></script>
     <style>
     /*custom CSS here*/
     </style>
@@ -30,7 +31,7 @@ d3.csv("data.csv",function(data){
         chartType:'webFrameM',
         title:'Lorem ipsum dolor sit amet',
         subtitle:'Vestibulum tincidunt arcu nibh',
-        source:'Nunc ac leo urna',
+        source:'Source not yet added',
         //height:500,
         //width:170.8,//comment the width out for web frames
         //margin:{top:20,left:20,right:20,bottom:20}//over-ride default margins
@@ -48,7 +49,6 @@ d3.csv("data.csv",function(data){
     const barColors = getBarColors(frameConfig.chartType)
 
     //plot dimensions
-    const plot = chartFrame.plot().append("g");
     const w = chartFrame.dimension().width;
     const h = chartFrame.dimension().height;
     const rem = chartFrame.rem();
@@ -64,13 +64,22 @@ d3.csv("data.csv",function(data){
     })
     console.log(data)//
 
-    //////draw your stuff on to 'plot' ////////
-    plot.append("circle")
+    //add axes using g-axis
+    const yAxis = gAxis.yLinear()
+        .tickSize(w)
+        .domain([0,200])
+        .range([h,0])
+    chartFrame.plot()
+        .call(yAxis);
+
+    //////draw your stuff on to 'graphics'////////
+    const graphics = chartFrame.plot().append("g");
+    graphics.append("circle")
         .attr("r",w*.1)
         .attr("cx",w*.5)
         .attr("cy",h*.5)
-        .attr("fill",lineColors[0])
-    plot.append("line")
+        .attr("fill",barColors[0])
+    graphics.append("line")
         .attr("x1",w*.4)
         .attr("x2",w*.6)
         .attr("y1",h*.5)
@@ -85,8 +94,6 @@ d3.csv("data.csv",function(data){
         .text("Annotations are important")
         .style('text-anchor', 'middle')
         .attr('dy', -(rem / 2))
-
-
 
 
     //END OF YOUR CUSTOM VIZ CODE
