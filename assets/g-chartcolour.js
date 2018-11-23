@@ -12,6 +12,8 @@
   	clean:'#FFF',
   };
 
+  var barPrint = ['#0083b3','#95bfc5','#004d6d','#64a2c1','#c6d6cc'];
+
   var basicLineWeb = ['#EB5E8D','#0f5499']; //the first colour is neutral / background, the second colour primary/ highlight
   //export default ['#d5ccbf','#ed588d']; //new web colours uncomment when they are approved the first colour is neutral / background, the second colour primary/ highlight
 
@@ -20,17 +22,18 @@
   var basicLineSocial = ['#81838F','#EB3F50'];
 
   var categorical_line = [
-  '#0f5499','#EB5E8D','#70DCE6','#9dbf57','#208fce','#7f062e','#c2b7af'
+  '#0f5499','#EB5E8D','#70DCE6','#9dbf57','#208fce','#7f062e','#c2b7af','#ce3140'
   ];
 
   var categorical_bar = [
-  	'#0f5499',
-  	'#4798c2',
-  	'#a8d8e0',
-  	'#a0c462',
-  	'#d9648b',
-  	'#7f193d',
-  	'#d9cdc3'
+  	'#1E558C',
+    '#94d2e6',
+    '#1E8FCC',
+    '#B3325D',
+    '#FF75A3',
+    '#D9CCC3',
+    '#AECC70',
+    '#F34D5B'
   ];
 
   var diverging = [
@@ -45,17 +48,61 @@
   '#1162b3'
   ];
 
+  var diverging3 = [
+  	'#b31147','#cec6b9','#105ba6'
+  ];
+
+  var diverging5 = [
+  	'#b31147','#d75d79','#cec6b9','#5884d6','#105ba6'
+  ];
+
   var diverging7 = [
   	'#b31147','#d75d79','#f09ba8','#f3dec8','#a9b0dd','#5884d6','#105ba6'
   ];
 
   var extendedLine = ['#d5ccbf','#ed588d','#FF0000','#00FF00']; //
 
-  var linePrint = ['#006a93','#ddb831','#c6d6cc','#ad1c21','#55a2c7','#0083b3'];
+  var categoricalBarGermanyPolitics = {
+  	'CDU/CSU':'#33302E',
+  	'SPD':'#F34D5B',
+  	'FDP':'#fcc83c',
+  	'Left':'#B3325D',
+  	'AfD':'#1E8FCC',
+    'Green':'#AECC70',
+  	'Other':'#CEC6B9',
+  };
 
-  var lineSocial = ['#eb3f50','#00d9ca','#bf9413','#1f5e99','#a7ff59','#ff9b96','#81838f'];
+  var categoricalBarGermanyPoliticsSocial = {
+  	'CDU/CSU':'#000000',
+  	'SPD':'#b80000',
+  	'FDP':'#f5bb00',
+  	'Left':'#73008a',
+  	'AfD':'#52c0ff',
+    'Green':'#00aa5b',
+  	'Other':'#CEC6B9',
+  };
+
+  var categoricalLineGermanyPolitics = {
+  	'CDU/CSU':'#000000',
+  	'SPD':'#b80000',
+  	'FDP':'#f5bb00',
+  	'Left':'#73008a',
+  	'AfD':'#52c0ff',
+    'Green':'#00aa5b',
+  	'Other':'#CEC6B9',
+  };
+
+  var linePrint = ['#006a93','#ddb831','#aad1d1','#ad1c21','#55a2c7','#0083b3'];
+
+  var lineSocial = ['#ff0055','#0066ff','#b1e645','#00ccff','#f2e5da','#65798c'];
 
   var lineWeb = ['#0f5499','#EB5E8D','#70DCE6','#9dbf57','#208fce','#7f062e','#c2b7af'];
+
+  var mutedFirstLinePrint = ['#999999','#006a93','#ddb831','#aad1d1','#ad1c21','#55a2c7','#0083b3'];
+
+  var mutedFirstLineSocial = ['#cccccc', '#eb3f50','#00d9ca','#bf9413','#1f5e99','#a7ff59','#ff9b96','#81838f'];
+
+  var mutedFirstLineWeb = ['#B3A9A0','#0f5499','#EB5E8D','#70DCE6','#9dbf57','#208fce','#7f062e'];
 
   var noData = {
     area:'#DAD2C3',
@@ -173,18 +220,36 @@
     green: '#55c72c',
   };
 
+  var categoricalUsPoliticsMidterms2018 = {
+    "republican small area": "#E60008",
+    "republican large area": "#FF4C55",
+    democrat: "#0F5499",
+    "social republican": "#FF5760",
+    "social democrat small area": "#579DD5",
+    "social democrat large area": "#177EE6",
+  };
+
   exports.background = backgrounds;
+  exports.barPrint = barPrint;
   exports.basicLineWeb = basicLineWeb;
   exports.basicLinePrint = basicLinePrint;
   exports.basicLineSocial = basicLineSocial;
   exports.categorical_line = categorical_line;
   exports.categorical_bar = categorical_bar;
   exports.diverging = diverging;
+  exports.diverging_3 = diverging3;
+  exports.diverging_5 = diverging5;
   exports.diverging_7 = diverging7;
   exports.extendedLine = extendedLine;
+  exports.germanPoliticalParties_bar = categoricalBarGermanyPolitics;
+  exports.germanPoliticalParties_bar_social = categoricalBarGermanyPoliticsSocial;
+  exports.germanPoliticalParties_line = categoricalLineGermanyPolitics;
   exports.linePrint = linePrint;
   exports.lineSocial = lineSocial;
   exports.lineWeb = lineWeb;
+  exports.mutedFirstLinePrint = mutedFirstLinePrint;
+  exports.mutedFirstLineSocial = mutedFirstLineSocial;
+  exports.mutedFirstLineWeb = mutedFirstLineWeb;
   exports.noData = noData;
   exports.sequentialMulti = sequentialMulti;
   exports.sequentialMulti_2 = sequentialMulti_2;
@@ -196,6 +261,7 @@
   exports.ukPoliticalPartiesPrint = categoricalUkPoliticsPrint;
   exports.usPoliticalPartiesSmallArea = categoricalUsPoliticsSmallarea;
   exports.usPoliticalPartiesLargeArea = categoricalUsPoliticsLargearea;
+  exports.usPoliticalPartiesMidterms2018 = categoricalUsPoliticsMidterms2018;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
